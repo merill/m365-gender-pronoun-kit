@@ -11,7 +11,7 @@
             "script": "${file}",
             "cwd": "${file}",
             "args": [
-                "-Tenant 'pora.onmicrosoft.com' -Url 'https://pora-admin.sharepoint.com' -ClientId '1d93462e-0f39-4e4c-898a-b6b1df5fa997' -CertificatePath 'C:/Users/meril/PnPPowerShell.pfx' -PronounAttribute 'extensionAttribute1'"
+                "-Tenant 'pora.onmicrosoft.com' -Url 'https://pora-admin.sharepoint.com' -ClientId '1d93462e-0f39-4e4c-898a-b6b1df5fa997' -CertificatePath '${workspaceFolder}/debug/PnPPowerShell.pfx' -PronounAttribute 'extensionAttribute1'"
             ]
         }
     ]
