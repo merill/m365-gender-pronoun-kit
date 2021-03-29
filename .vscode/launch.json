@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PowerShell: Launch Current File",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${file}",
+            "cwd": "${file}",
+            "args": [
+                "-Tenant 'pora.onmicrosoft.com' -Url 'https://pora-admin.sharepoint.com' -ClientId '1d93462e-0f39-4e4c-898a-b6b1df5fa997' -CertificatePath 'C:/Users/meril/PnPPowerShell.pfx' -PronounAttribute 'extensionAttribute1'"
+            ]
+        }
+    ]
+}
