@@ -1,3 +1,7 @@
+<#
+ .Synopsis
+ Runs a sync to update Azure AD attribute that contains the pronoun with the corresponding value from the SharePoint/Delve user profile.
+#>
 param(
     [Parameter(Mandatory = $true, ValueFromPipeline = $true)]$Url,
     [Parameter(Mandatory = $true, ValueFromPipeline = $true)]$Tenant,
@@ -9,22 +13,7 @@ param(
     'extensionAttribute11', 'extensionAttribute12', 'extensionAttribute13', 'extensionAttribute14', 'extensionAttribute15')]
     [System.String]$PronounAttribute = "extensionAttribute1"
 )
-
-function Invoke-Graph{
-    param($Uri, [ValidateSet('PATCH', 'GET')] $Method, $Body)
-
-    $accesstoken = Get-PnPGraphAccessToken
-    if($Uri.StartsWith('https')){
-        $graphUri = $Uri
-    }
-    else {
-        $graphUri = 'https://graph.microsoft.com/v1.0/{0}' -f $Uri
-    }
-    
-    $res = Invoke-RestMethod -Headers @{Authorization = "Bearer $accesstoken" } -Uri $graphUri -Method $Method -Body $Body -ContentType 'application/json'
-    Write-Output $res
-}
-
+. .\Shared.ps1
 Connect-PnPOnline -Tenant $Tenant -Url $Url -ClientId $ClientId -CertificatePath $CertificatePath
 $aadUsers = (Invoke-Graph -Uri 'users?$select=id,userPrincipalName,onPremisesExtensionAttributes&$top=999' -Method GET)
 do{
