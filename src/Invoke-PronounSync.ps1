@@ -13,7 +13,33 @@ param(
     'extensionAttribute11', 'extensionAttribute12', 'extensionAttribute13', 'extensionAttribute14', 'extensionAttribute15')]
     [System.String]$PronounAttribute = "extensionAttribute1"
 )
-. .\Shared.ps1
+function Invoke-Graph{
+    param(
+        $Uri,
+        [ValidateSet('PATCH', 'GET', 'POST')] $Method, 
+        $Body,
+        [ValidateSet('v1.0', 'beta')] $ApiVersion = "v1.0"
+    )
+
+    $accesstoken = Get-PnPGraphAccessToken
+    if($Uri.StartsWith('https')){
+        $graphUri = $Uri
+    }
+    else {
+        $graphUri = 'https://graph.microsoft.com/{0}/{1}' -f $ApiVersion, $Uri
+    }
+    
+    $res = Invoke-RestMethod -Headers @{Authorization = "Bearer $accesstoken" } -Uri $graphUri -Method $Method -Body $Body -ContentType 'application/json'
+    Write-Output $res
+}
+
+$hasPnP = (Get-Module PnP.PowerShell -ListAvailable).Length
+if ($hasPnP -eq 0) {
+    Write-Host "This script requires PnP PowerShell, trying to install"
+    Find-Module PnP.PowerShell
+    Install-Module PnP.PowerShell -Scope CurrentUser
+}
+
 Connect-PnPOnline -Tenant $Tenant -Url $Url -ClientId $ClientId -CertificatePath $CertificatePath
 $aadUsers = (Invoke-Graph -Uri 'users?$select=id,userPrincipalName,onPremisesExtensionAttributes&$top=999' -Method GET)
 do{

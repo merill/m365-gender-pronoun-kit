@@ -12,7 +12,13 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 
-. .\Shared.ps1
+$hasGraph = (Get-Module Microsoft.Graph.Authentication -ListAvailable).Length
+if ($hasGraph -eq 0) {
+    Write-Host "This script requires Microsoft Graph PowerShell, trying to install"
+    Find-Module Microsoft.Graph.Authentication
+    Install-Module Microsoft.Graph.Authentication -Scope CurrentUser
+}
+
 Connect-MgGraph -Scopes 'User.ReadWrite.All'
 
 $uri = "https://graph.microsoft.com/beta/organization/$((Get-MgContext).TenantId)/settings/profileCardProperties"
