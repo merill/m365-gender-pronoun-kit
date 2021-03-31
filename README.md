@@ -13,9 +13,23 @@ This kit is a collection of scripts and guidance to help you add the Pronoun fie
 
 ## Solution Overview
 To add the Pronoun to the user profile card and allow users to edit the field requires connecting a few different components in Office 365.
-* Profile Card - Displays the Pronoun field in Outlook, SharePoint, Delve and any other Microsoft 365 service that shows the profile card.
-* Azure Active Directory - The Profile Card is limited to showing the 
-* SharePoint User Profile - 
+
+### Profile Card
+Displays the Pronoun field in the Microsoft 365 Profile Card. This profile card shows up in Outlook, SharePoint, Delve and most other Microsoft 365 services.
+
+### Azure Active Directory
+The [Profile Card](https://docs.microsoft.com/en-us/graph/add-properties-profilecard) can display from a [limited set of user attributes](https://docs.microsoft.com/en-us/graph/add-properties-profilecard#adding-custom-attributes) from Azure Active Directory. Namely extensionAttribute1 through extensionAttribe15.
+
+The first choice that needs to be made is to select the extensionAttribute in Azure Active Directory that is goind to be reserved for the Pronoun in your organization.
+
+### SharePoint User Profile (Optional)
+Now that the Pronoun is being displayed in the Profile Card we need to provide a way for users to set their own Pronoun.
+
+The SharePoint user profile provides a seamless experience for users to navigate from the profile card to the edit experience. Unfortunately there is no out of the box solution to update the Azure Active Directory Pronoun attribute. Administrators will need to set up a process sync the Pronoun attribute from SharePoint to Azure Active Directory. The Invoke-PronounSync.ps1 script can be used to automate this process.
+
+_Note: Using the SharePoint Profile is optional, especially if Azure Active Directory Connect is being used to sync the extension attributes. If attributes are being synced from Active Directory and mastered in an HR system it makes sense to have the HR system provide the interface to edit the Pronoun and have that update the extensionAttribute.
+Alternative options to edit the user profile can be implemented including a PowerApp or a custom SharePoint page to directly update the Pronoun attribute in Azure Active Directory. 
+_
 
 
 ## Installation Guide
@@ -44,17 +58,6 @@ Once the sync is run successfully you can set it up on your platform of choice t
 * Server (On Premises or Public Cloud)
 * Azure Automation
 * Azure DevOps
-
-
-This can be scheduled to run as a daily job nightly to run in either Azure DevOps 
-* Browse to https://pora-admin.sharepoint.com/_layouts/15/appinv.aspx
-* Look up the ID based on the Client ID created in the previous step
-
-
-    <AppPermissionRequests AllowAppOnlyPolicy="true">
-        <AppPermissionRequest Scope="http://sharepoint/content/tenant" Right="Read" />
-    </AppPermissionRequests>
-
 
 ## Contributing
 
