@@ -12,10 +12,10 @@ This kit is a collection of scripts and guidance to help you add the Pronoun fie
 ![Demo of Pronoun field displayed and editable in M365 User Profile and Profile Card](https://github.com/merill/media/blob/main/M365-Pronoun-Demo.gif?raw=true)
 
 ## Solution Overview
-To add the Pronoun to the user profile card and allow users to edit the field requires a few different components in Office 365. 
-* Azure Active Directory 
-* Profile Card
-* SharePoint User Profile
+To add the Pronoun to the user profile card and allow users to edit the field requires connecting a few different components in Office 365.
+* Profile Card - Displays the Pronoun field in Outlook, SharePoint, Delve and any other Microsoft 365 service that shows the profile card.
+* Azure Active Directory - The Profile Card is limited to showing the 
+* SharePoint User Profile - 
 
 
 ## Installation Guide
