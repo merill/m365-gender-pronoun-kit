@@ -27,10 +27,8 @@ Now that the Pronoun is being displayed in the Profile Card we need to provide a
 
 The SharePoint user profile provides a seamless experience for users to navigate from the profile card to the edit experience. Unfortunately there is no out of the box solution to update the Azure Active Directory Pronoun attribute. Administrators will need to set up a process sync the Pronoun attribute from SharePoint to Azure Active Directory. The Invoke-PronounSync.ps1 script can be used to automate this process.
 
-_Note: Using the SharePoint Profile is optional, especially if Azure Active Directory Connect is being used to sync the extension attributes. If attributes are being synced from Active Directory and mastered in an HR system it makes sense to have the HR system provide the interface to edit the Pronoun and have that update the extensionAttribute.
-Alternative options to edit the user profile can be implemented including a PowerApp or a custom SharePoint page to directly update the Pronoun attribute in Azure Active Directory. 
-_
-
+*Note: Using the SharePoint Profile is optional, especially if Azure Active Directory Connect is being used to sync the extension attributes. If attributes are being synced from Active Directory and mastered in an HR system it makes sense to have the HR system provide the interface to edit the Pronoun and have that update the extensionAttribute.*
+*Alternative options to edit the user profile can be implemented including a PowerApp or a custom SharePoint page to directly update the Pronoun attribute in Azure Active Directory.*
 
 ## Installation Guide
 ### Create the Pronoun property in the Microsoft 365 Profile Card
