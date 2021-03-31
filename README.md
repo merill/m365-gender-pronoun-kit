@@ -1,14 +1,24 @@
 # Microsoft 365 Gender Pronoun Kit
 This project is a collection of scripts that will allow you to add a Pronoun field to your Microsoft 365 tenant. Once set up users will be able to update their preferred pronoun from their Microsoft 365 Profile and have it appear in the Microsoft 365 Profile card.
 
-## Overview
-TODO: Provide an overview with screenshots of the profile card and what we are doing.
+## Why Pronouns (She/Her, They/Them, He/Him...)?
+Often, people make assumptions about the gender of another person based on the person’s appearance or name. These assumptions aren’t always correct, and the act of making an assumption (even if correct) sends a potentially harmful message -- that people have to look a certain way to demonstrate the gender that they are or are not.
+
+Just as it can be offensive or even harassing to make up a nickname for someone and call them that nickname against their will, it can be offensive or harassing to guess at someone’s pronouns and refer to them using those pronouns if that is not how that person wants to be known.
+
+## How does this Gender Pronoun kit help?
+This kit is a collection of scripts and guidance to help you add the Pronoun field to the user profile of your Microsoft 365 tenant.
+
+![Demo of Pronoun field displayed and editable in M365 User Profile and Profile Card](https://github.com/merill/media/blob/main/M365-Pronoun-Demo.gif?raw=true)
 
 ## Solution Overview
-TODO: Provide a solution overview of how the Pronoun is synced.
+To add the Pronoun to the user profile card and allow users to edit the field requires a few different components in Office 365. 
+* Azure Active Directory 
+* Profile Card
+* SharePoint User Profile
+
 
 ## Installation Guide
-
 ### Create the Pronoun property in the Microsoft 365 Profile Card
 
 ```powershell
