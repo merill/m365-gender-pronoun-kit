@@ -32,13 +32,13 @@ The SharePoint user profile provides a seamless experience for users to navigate
 
 ## Installation Guide
 ### Create the Pronoun property in the Microsoft 365 Profile Card
-
+This script adds the Pronoun attribute to the Microsoft 365 Profile Card in your tenant. 
 ```powershell
     .\Set-ProfileCardPronoun.ps1 -PronounAttribute 'extensionAttribute1'
 ```
 
 ### Create an application in Azure AD
-This application ('User Pronoun Sync App') will be created with the appropriate application permissions for running the daily sync job. This sync job will copy the users' Pronoun from SharePoint/Delve to Azure AD.
+This application ('User Pronoun Sync App') will be created with the appropriate application permissions for running the daily sync job. This sync job will copy the user's Pronouns from SharePoint/Delve to Azure AD.
 ```powershell
     Install-Module PnP.PowerShell -Scope CurrentUser
     Register-PnPAzureADApp -ApplicationName 'User Pronoun Sync App' -Tenant {tenant-name}.onmicrosoft.com -GraphApplicationPermissions 'User.ReadWrite.All' -SharePointApplicationPermissions 'User.Read.All' -DeviceLogin
@@ -56,6 +56,7 @@ Once the sync is run successfully you can set it up on your platform of choice t
 * Server (On Premises or Public Cloud)
 * Azure Automation
 * Azure DevOps
+
 
 ## Contributing
 
