@@ -36,6 +36,26 @@ This script adds the Pronoun attribute to the Microsoft 365 Profile Card in your
 ```powershell
     .\Set-ProfileCardPronoun.ps1 -PronounAttribute 'extensionAttribute1'
 ```
+*Note: It can take up to 24 hours after this command is run for the profile card to be updated in Outlook*
+
+
+### Create the Pronoun property in the SharePoint User Profile
+To provide an edit experience for the Pronoun field users To allow users to edit the Pronoun field in SharePoint and Delve it needs to be created in the User Profile store. Unfortunately there is no API available to automate the creation of properties in the SharePoint User Profile.
+
+Follow the steps below to create the Pronoun field in SharePoint.
+* Browse to the [Microsoft 365 Admin Center](https://admin.microsoft.com)
+* Under *Admin centers* select *SharePoint*
+* Under *More features*, select *User profiles*, select *Open*.
+* Under *People*, select *Manage User Properties*.
+* Select *New Property*.
+* In the *Name* box and *Display Name* box, enter a unique name for the property.
+* In the *Display Name* box, enter the profile property name as *Pronoun*.
+* In the *Type* list, select *string* as the data type for the property.
+* In the *Description* box add the following warning: Updates to the Pronoun field can take up to 24 hours to display in the User Profile card.
+* In *Policy Settings* under *Default Privacy Setting* select *Everyone*.
+* In *Edit Settings* Select *Allow users to edit values for this property*.
+* In *Display Settings*, Select *Show in the profile properties section of the user's profile page*
+* In *Display Settings*, Select *Show on the Edit Details page*
 
 ### Create an application in Azure AD
 This application ('User Pronoun Sync App') will be created with the appropriate application permissions for running the daily sync job. This sync job will copy the user's Pronouns from SharePoint/Delve to Azure AD.
