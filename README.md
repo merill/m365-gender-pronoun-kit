@@ -1,3 +1,6 @@
+# IMPORTANT
+If you are planning on commencing a new project to introduce Gender Pronouns in Microsoft 365 you may want to hold off for a while.
+
 # Microsoft 365 Gender Pronoun Kit
 This project is a collection of scripts that will allow you to add a Pronoun field to your Microsoft 365 tenant. Once set up users will be able to update their preferred pronoun from their Microsoft 365 Profile and have it appear in the Microsoft 365 Profile card.
 
