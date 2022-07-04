@@ -23,7 +23,7 @@ Displays the Pronoun field in the Microsoft 365 Profile Card. This profile card 
 ### Azure Active Directory
 The [Profile Card](https://docs.microsoft.com/en-us/graph/add-properties-profilecard) can display from a [limited set of user attributes](https://docs.microsoft.com/en-us/graph/add-properties-profilecard#adding-custom-attributes) from Azure Active Directory. Namely extensionAttribute1 through extensionAttribe15.
 
-The first choice that needs to be made is to select the extensionAttribute in Azure Active Directory that is goind to be reserved for the Pronoun in your organization.
+The first choice that needs to be made is to select the extensionAttribute in Azure Active Directory that is going to be reserved for the Pronoun in your organization.
 
 ### SharePoint User Profile (Optional)
 Now that the Pronoun is being displayed in the Profile Card we need to provide a way for users to set their own Pronoun.
